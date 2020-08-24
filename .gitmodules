@@ -1,0 +1,7 @@
+[submodule "detectron2_repo"]
+    path = detectron2_repo
+    url = https://github.com/facebookresearch/detectron2.git
+
+[submodule "similarity_framework"]
+    path = similarity_framework/PerceptualSimilarity
+    url = https://github.com/richzhang/PerceptualSimilarity.git
