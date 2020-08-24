@@ -1,0 +1,34 @@
+AL:
+  ALI: 50
+  #QUERY_STRATEGIES: ['maxent', 'rand', 'sument', 'sumbvsb', 'maxbvsb'] #run0
+  QUERY_STRATEGIES: ['avgent'] #run1
+  INIT_TRAIN_SIZE: 2000
+  VAL_SIZE: 1
+  FIXED_TEST_SIZE: 3000
+  INFERENCE_SIZE: 5000
+  WIDE_SELECTION: False
+  BATCH_SIZE: 250
+  RATIO: [150, 75, 25]
+MODEL:
+  BATCH_SIZE_PER_IMAGE: 256
+  SCORE_THRESH_TEST: 0.5
+  NUM_CLASSES: 3
+  USE_DROPOUT: False
+  USE_EARLY_STOP: False
+  TYPE: './detectron2_repo/configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml'
+  WEIGHTS: 'detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl'
+DATALOADER:
+  NUM_WORKERS: 16
+SOLVER:
+  MAX_ITER_INIT: 2500
+  MAX_ITER: 500
+  IMS_PER_BATCH: 8
+  BASE_LR: 0.001
+DATASETS:
+  TRAIN: "waymo_train"
+  VAL: "waymo_val"
+  FIXED: "waymo_fixed"
+  TEST: "waymo_test"
+DATASET_NAME: 'waymo'
+OUTPUT_DIR: './runs/faster_rcnn_waymo_new/'
+DATASET_DIR: './datasets/waymo/'

@@ -1,0 +1,40 @@
+AL:
+  ALI: 25
+  QUERY_STRATEGIES: ['sument', 'maxent', 'rand'] # run0
+  # QUERY_STRATEGIES: ['avgent', 'sument', 'maxent', 'rand'] # run1 run2 run3
+  # QUERY_STRATEGIES: ['avgbvsb', 'sumbvsb', 'maxbvsb', 'sument', 'rand'] # run4
+  INIT_TRAIN_SIZE: 32
+  VAL_SIZE: 4
+  FIXED_TEST_SIZE: 1000
+  INFERENCE_SIZE: 2000
+  WIDE_SELECTION: False
+  BATCH_SIZE: 16
+  RATIO: [0, 0, 0]
+MODEL:
+  BATCH_SIZE_PER_IMAGE: 128
+  SCORE_THRESH_TEST: 0.5
+  NUM_CLASSES: 10
+  USE_DROPOUT: False
+  USE_EARLY_STOP: True
+  TYPE: './detectron2_repo/configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml'
+  WEIGHTS: 'detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl'
+EARLY_STOP:
+  EVAL_PERIOD: 100
+  MAX_ITER: 5000
+  PATIENCE: 4
+  DELTA: 0.005
+DATALOADER:
+  NUM_WORKERS: 8
+SOLVER:
+  MAX_ITER_INIT: 300
+  MAX_ITER: 100
+  IMS_PER_BATCH: 8
+  BASE_LR: 0.00025
+DATASETS:
+  TRAIN: "yymnist_train"
+  VAL: "yymnist_val"
+  FIXED: "yymnist_fixed"
+  TEST: "yymnist_test"
+DATASET_NAME: 'yymnist'
+OUTPUT_DIR: './runs/faster_rcnn_yymnist_es/'
+DATASET_DIR: './datasets/yymnist/'

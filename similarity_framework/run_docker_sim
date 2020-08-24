@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import sys, os, random
+
+gpu_id = sys.argv[1]
+python_args = " ".join(sys.argv[2:])
+
+docker_name = str(random.randint(0, 10000))
+docker_container = "navjots_{}".format(docker_name)
+pwd = os.path.dirname(os.path.abspath(__file__))
+
+cmd = [
+        "nvidia-docker",
+        "run",
+        f"-u 1204438",
+        f"--name {docker_container}",
+        "--ipc host",
+        "--rm",
+        f"-v {pwd}:/workspace",
+        f"-e CUDA_VISIBLE_DEVICES={gpu_id}",
+        "--log-opt max-size=50m",
+        "-it",
+        "navjots/al_sim",
+        f"{python_args}"
+]
+
+command = " ".join(cmd)
+print(command)
+os.system(command)

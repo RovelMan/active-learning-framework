@@ -1,0 +1,37 @@
+AL:
+  ALI: 50
+  # QUERY_STRATEGIES: ['dropout', 'sumbvsb', 'sument', 'maxent', 'rand'] #run0
+  QUERY_STRATEGIES: ['dropout', 'sument', 'rand'] #run1
+  # QUERY_STRATEGIES: ['sumbvsb', 'sument', 'maxent', 'rand'] #run2 using initial model from run1
+  INIT_TRAIN_SIZE: 2000
+  VAL_SIZE: 1
+  FIXED_TEST_SIZE: 3000
+  INFERENCE_SIZE: 5000 #run0 run1
+  # INFERENCE_SIZE: 750 #run2
+  # WIDE_SELECTION: False #run0
+  WIDE_SELECTION: False #run1
+  BATCH_SIZE: 250
+  RATIO: [150, 75, 25]
+MODEL:
+  BATCH_SIZE_PER_IMAGE: 256
+  SCORE_THRESH_TEST: 0.5
+  NUM_CLASSES: 10
+  USE_DROPOUT: False
+  USE_EARLY_STOP: False
+  TYPE: './detectron2_repo/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml'
+  WEIGHTS: 'detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl'
+DATALOADER:
+  NUM_WORKERS: 16
+SOLVER:
+  MAX_ITER_INIT: 3000
+  MAX_ITER: 750
+  IMS_PER_BATCH: 8
+  BASE_LR: 0.001
+DATASETS:
+  TRAIN: "apollo_train"
+  VAL: "apollo_val"
+  FIXED: "apollo_fixed"
+  TEST: "apollo_test"
+DATASET_NAME: 'apollo'
+OUTPUT_DIR: './runs/mask_rcnn_apollo/'
+DATASET_DIR: './datasets/apollo/'
