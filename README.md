@@ -27,7 +27,7 @@ apollo.auto.com
 ```
 
 ### Waymo Open Dataset
-This thesis was made using the Waymo Open Dataset, provided by Waymo LLC under license terms available at waymo.com/open.
+This repository was made using the Waymo Open Dataset, provided by Waymo LLC under license terms available at waymo.com/open.
 ```
 @misc{waymo_open_dataset,
     key={waymo},
