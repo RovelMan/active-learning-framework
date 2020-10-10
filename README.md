@@ -7,7 +7,7 @@ Our AL Framework can use new models and datasets as long as they are implemented
 
 The AL Framework runs an experiment using all the provided learners in a sequential fashion where each learner is run for a number of Active Learning Iterations (ALIs). A single ALI consists of: initialization and configuration, training, evaluation, inference and prediction, logging, and clean-up. The figure below illustrates the workflow of our AL Framework.
 
-FIGURE
+![Active Learning Flow](/active_learning_flow.jpg)
 A user provides a config-file and initializes the framework. Initially, samples are selected randomly, labeled, and added to the training set; labels of samples are obtained from a dataset and not manually annotated. Then, a model is fully trained, evaluated on a test set, and used with Active Learning to select a new set of highly informative samples that are added to the training set. This process is repeated for a number of ALIs.
 
 The user can provide a configuration file to run a custom experiment. The following list is part of our contributions and gives a quick overview of the supported functionality:
@@ -31,7 +31,7 @@ Models used from **Detectron2**'s model zoo:
 - coco-pretrained R50-FPN 3x schedule Faster R-CNN Model for Object Detection (Model ID: 137849458)
 - coco-pretrained R50 FPN 3x schedule Mask R-CNN Model for Object Detection and Instance-Based Segmentation (Model ID: 137849600)
 
-FIGURE
+![Active Learning Architecture](/al_architecture.jpg)
 
 This figure illustrates the architecture of the AL Framework. The user provides a configuration file from the configs folder to learn.py to run experiments. The AL engine uses **Detectron2**, and contains training and predictions loops. The AL engine uses different Query Strategies and DataLoaders to perform experiments. All logs and outputs are saved in the run folder. Other utility functions are accessed from utils.py. A **Perceptual Similarity** tool is used for data diversity.
 
