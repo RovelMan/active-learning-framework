@@ -1,7 +1,8 @@
 # active-learning-framework
 A pool-based Active Learning Framework for object detection and instance-based segmentation tasks
 
-Setup and tutorial coming soon
+## Setup
+Open up the notebook in Google colab and follow the tutorial for running active learning with object detection using Faster R-CNN on the yymnist digit dataset.
 
 Our AL Framework can use new models and datasets as long as they are implemented following **Detectron2**'s documentation, and uncertainty based query strategies can easily be added and implemented as long as they handle the expected input and give an expected output.
 

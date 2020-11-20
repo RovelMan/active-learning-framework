@@ -48,7 +48,7 @@ def create_init_sets(al_cfg, RUN_DIR, ALI, STRATEGY):
                 if this_id not in skip_ids:
                     ALL_IMAGE_IDS.append(this_id)
         elif al_cfg.DATASET_NAME == 'yymnist':
-            all_ids = next(os.walk(join(al_cfg.DATASET_DIR, 'Images/all')))[-1]
+            all_ids = next(os.walk(join(al_cfg.DATASET_DIR, 'Images')))[-1]
             all_ids.remove('labels.txt')
             for img_id in all_ids:
                 ALL_IMAGE_IDS.append(img_id.split('.')[0])

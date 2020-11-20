@@ -112,7 +112,6 @@ def get_apollo_dicts(img_dir, img_ids):
 # Loads the yymnist dataset into detectron2's standard format
 def get_yymnist_dicts(img_dir, img_ids):
     img_dir = img_dir.split('/')[:-1]
-    img_dir.append('all')
     img_dir = '/'.join(img_dir)
     imgs_anns = []
     with open(os.path.join(img_dir, 'labels.txt')) as f:
