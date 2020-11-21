@@ -6,6 +6,7 @@ Open up the active_learning_framework.ipynb in Google colab and follow the tutor
 https://colab.research.google.com/drive/1HemwVRUmJkTRaZVykTrcVjRMmnpuoVQ1?usp=sharing 
 This run will take approx 2.5 hours. You should see that the final accuracy would be SUMENT > MAXENT > RAND.
 
+## Information
 Our AL Framework can use new models and datasets as long as they are implemented following **Detectron2**'s documentation, and uncertainty based query strategies can easily be added and implemented as long as they handle the expected input and give an expected output.
 
 The AL Framework runs an experiment using all the provided learners in a sequential fashion where each learner is run for a number of Active Learning Iterations (ALIs). A single ALI consists of: initialization and configuration, training, evaluation, inference and prediction, logging, and clean-up. The figure below illustrates the workflow of our AL Framework.
